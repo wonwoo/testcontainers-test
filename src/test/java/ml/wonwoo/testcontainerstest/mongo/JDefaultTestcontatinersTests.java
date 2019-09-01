@@ -31,7 +31,7 @@ class JDefaultTestcontatinersTests {
     @Test
     void default_mongo_db_test() {
 
-        int port = mongoDbContainer.getMappedPort(27017);
+        int port = mongoDbContainer.getPort();
 
         MongoClient mongoClient = new MongoClient(mongoDbContainer.getContainerIpAddress(), port);
         MongoDatabase database = mongoClient.getDatabase("test");

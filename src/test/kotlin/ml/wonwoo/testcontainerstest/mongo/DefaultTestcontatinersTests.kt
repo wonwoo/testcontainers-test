@@ -33,14 +33,16 @@ class DefaultTestcontatinersTests {
 
         collection.insertOne(document)
 
-        val documents = collection.find()
+        collection.find().apply {
 
-        assertThat(documents).hasSize(1)
+            assertThat(this).hasSize(1)
 
-        documents.forEach {
-            assertThat(it["name"]).isEqualTo("wonwoo")
-            assertThat(it["email"]).isEqualTo("test@test.com")
+            forEach {
 
+                assertThat(it["name"]).isEqualTo("wonwoo")
+                assertThat(it["email"]).isEqualTo("test@test.com")
+
+            }
         }
 
     }

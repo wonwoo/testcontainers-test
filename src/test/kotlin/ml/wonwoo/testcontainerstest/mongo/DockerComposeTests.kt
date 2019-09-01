@@ -47,17 +47,17 @@ class DockerComposeTests {
 
         collection.insertOne(document)
 
-        val documents = collection.find()
+        collection.find().apply {
 
+            assertThat(this).hasSize(1)
 
-        assertThat(documents).hasSize(1)
+            forEach {
 
-        documents.forEach {
-            assertThat(it["name"]).isEqualTo("wonwoo")
-            assertThat(it["email"]).isEqualTo("test@test.com")
+                assertThat(it["name"]).isEqualTo("wonwoo")
+                assertThat(it["email"]).isEqualTo("test@test.com")
 
+            }
         }
-
     }
 
 }
