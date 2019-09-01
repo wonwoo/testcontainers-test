@@ -6,6 +6,7 @@ import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest
 import org.springframework.boot.test.util.TestPropertyValues
 import org.springframework.context.ApplicationContextInitializer
 import org.springframework.context.ConfigurableApplicationContext
+import org.springframework.test.annotation.DirtiesContext
 import org.springframework.test.context.ContextConfiguration
 import java.lang.annotation.Inherited
 
@@ -15,6 +16,7 @@ import java.lang.annotation.Inherited
 @Inherited
 @DataMongoTest
 @ContextConfiguration(initializers = [Initializer::class])
+@DirtiesContext
 annotation class DataMongoIntegrationTest {
 
     companion object {
