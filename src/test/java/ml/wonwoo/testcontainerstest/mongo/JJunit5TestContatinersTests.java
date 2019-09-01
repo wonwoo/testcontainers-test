@@ -4,7 +4,6 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import ml.wonwoo.testcontainerstest.MongoDbContainer;
 import org.bson.Document;
 import org.junit.jupiter.api.Test;
 import org.testcontainers.junit.jupiter.Container;
@@ -18,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class JJunit5TestContatinersTests {
 
     @Container
-    private MongoDbContainer mongoDbContainer = new MongoDbContainer();
+    private JMongoDbContainer mongoDbContainer = new JMongoDbContainer();
 
     @Test
     void junit5_mongo_db_test() {

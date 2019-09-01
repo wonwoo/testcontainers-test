@@ -2,7 +2,7 @@ package ml.wonwoo.testcontainerstest.mongo
 
 import ml.wonwoo.testcontainerstest.todo.Todo
 import ml.wonwoo.testcontainerstest.todo.TodoRepository
-import org.assertj.core.api.Assertions
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 
@@ -17,8 +17,8 @@ class SpringDataCustomizedTestcontatinersTests(@Autowired private val todoReposi
 
         val (_, name, email) = todoRepository.findByName("wonwoo")
 
-        Assertions.assertThat(name).isEqualTo("wonwoo")
-        Assertions.assertThat(email).isEqualTo("test@test.com")
+        assertThat(name).isEqualTo("wonwoo")
+        assertThat(email).isEqualTo("test@test.com")
     }
 
 }
