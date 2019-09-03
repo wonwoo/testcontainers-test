@@ -4,9 +4,9 @@ import org.springframework.boot.test.util.TestPropertyValues;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 
-public class MongoDbContainerInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
+public class JMongoDbContainerInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
 
-    private JMongoDbContainer mongoDbContainer = new JMongoDbContainer();
+    private final JMongoDbContainer mongoDbContainer = new JMongoDbContainer();
 
     @Override
     public void initialize(ConfigurableApplicationContext applicationContext) {

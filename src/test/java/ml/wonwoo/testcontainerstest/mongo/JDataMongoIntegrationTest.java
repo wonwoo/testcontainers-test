@@ -11,7 +11,7 @@ import java.lang.annotation.*;
 @Documented
 @Inherited
 @DataMongoTest
-@ContextConfiguration(initializers = MongoDbContainerInitializer.class)
+@ContextConfiguration(initializers = JMongoDbContainerInitializer.class)
 @DirtiesContext
 public @interface JDataMongoIntegrationTest {
 

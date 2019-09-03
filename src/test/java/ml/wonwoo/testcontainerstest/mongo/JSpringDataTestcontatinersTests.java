@@ -12,7 +12,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataMongoTest
-@ContextConfiguration(initializers = MongoDbContainerInitializer.class)
+@ContextConfiguration(initializers = JMongoDbContainerInitializer.class)
 class JSpringDataTestcontatinersTests {
 
     private final TodoRepository todoRepository;
