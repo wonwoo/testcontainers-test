@@ -4,13 +4,14 @@ import ml.wonwoo.testcontainerstest.todo.Todo;
 import ml.wonwoo.testcontainerstest.todo.TodoRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.annotation.DirtiesContext;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @JDataMongoIntegrationTest
+@DirtiesContext
 class JSpringDataCustomizedTestcontatinersTests {
 
     private final TodoRepository todoRepository;
