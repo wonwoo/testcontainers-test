@@ -26,7 +26,7 @@ class JSpringDataTestcontatinersTests {
 
     @Test
     void spring_data_mono_test() {
-
+        todoRepository.deleteAll();
         todoRepository.save(new Todo(null, "wonwoo", "test@test.com"));
 
         List<Todo> todo = todoRepository.findAll();

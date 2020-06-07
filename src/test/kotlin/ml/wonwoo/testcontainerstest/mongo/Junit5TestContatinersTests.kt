@@ -1,6 +1,6 @@
 package ml.wonwoo.testcontainerstest.mongo
 
-import com.mongodb.MongoClient
+import com.mongodb.client.MongoClients
 import ml.wonwoo.testcontainerstest.MongoDbContainer
 import org.assertj.core.api.Assertions.assertThat
 import org.bson.Document
@@ -20,7 +20,7 @@ class Junit5TestContatinersTests {
 
         val port = mongoDbContainer.getPort()
 
-        val mongoClient = MongoClient(mongoDbContainer.containerIpAddress, port)
+        val mongoClient = MongoClients.create("mongodb://${mongoDbContainer.containerIpAddress}:$port")
         val database = mongoClient.getDatabase("test")
 
         val collection = database.getCollection("users")

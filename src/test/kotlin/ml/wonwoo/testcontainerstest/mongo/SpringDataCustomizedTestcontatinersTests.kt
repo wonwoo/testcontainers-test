@@ -5,16 +5,14 @@ import ml.wonwoo.testcontainerstest.todo.TodoRepository
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.test.annotation.DirtiesContext
 
 @DataMongoIntegrationTest
-@DirtiesContext
 class SpringDataCustomizedTestcontatinersTests(@Autowired private val todoRepository: TodoRepository) {
 
 
     @Test
     fun `spring data mono customized test`() {
-
+        todoRepository.deleteAll()
         todoRepository.save(Todo(name = "wonwoo", email = "test@test.com"))
 
         val (_, name, email) = todoRepository.findByName("wonwoo")

@@ -1,9 +1,6 @@
 package ml.wonwoo.testcontainerstest.mongo;
 
-import com.mongodb.MongoClient;
-import com.mongodb.client.FindIterable;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.*;
 import org.bson.Document;
 import org.junit.jupiter.api.Test;
 import org.testcontainers.junit.jupiter.Container;
@@ -24,7 +21,8 @@ class JJunit5TestContatinersTests {
 
         int port = mongoDbContainer.getPort();
 
-        MongoClient mongoClient = new MongoClient(mongoDbContainer.getContainerIpAddress(), port);
+        String s = "mongodb://" + mongoDbContainer.getContainerIpAddress() + ":" + port;
+        MongoClient mongoClient = MongoClients.create(s);
         MongoDatabase database = mongoClient.getDatabase("test");
 
         MongoCollection<Document> collection = database.getCollection("users");

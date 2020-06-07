@@ -1,9 +1,6 @@
 package ml.wonwoo.testcontainerstest.mongo;
 
-import com.mongodb.MongoClient;
-import com.mongodb.client.FindIterable;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.*;
 import org.bson.Document;
 import org.junit.jupiter.api.Test;
 import org.testcontainers.containers.DockerComposeContainer;
@@ -33,7 +30,7 @@ class JDockerComposeTests {
         int port = dockerCompose.getServicePort("mongo_1", MONGO_PORT);
         String host = dockerCompose.getServiceHost("mongo_1", MONGO_PORT);
 
-        MongoClient mongoClient = new MongoClient(host, port);
+        MongoClient mongoClient = MongoClients.create("mongodb://" + host + ":" + port);
         MongoDatabase database = mongoClient.getDatabase("test");
 
         MongoCollection<Document> collection = database.getCollection("users");

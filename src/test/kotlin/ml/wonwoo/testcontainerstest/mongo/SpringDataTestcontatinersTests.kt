@@ -14,6 +14,7 @@ class SpringDataTestcontatinersTests(@Autowired private val todoRepository: Todo
 
     @Test
     fun `spring data mono test`() {
+        todoRepository.deleteAll()
         todoRepository.save(Todo(name = "wonwoo", email = "test@test.com"))
 
         val (_, name, email) = todoRepository.findByName("wonwoo")

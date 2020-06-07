@@ -1,6 +1,7 @@
 package ml.wonwoo.testcontainerstest.mongo
 
-import com.mongodb.MongoClient
+import com.mongodb.MongoClientSettings
+import com.mongodb.client.MongoClients
 import ml.wonwoo.testcontainerstest.KDockerComposeContainer
 import org.assertj.core.api.Assertions.assertThat
 import org.bson.Document
@@ -37,7 +38,7 @@ class DockerComposeTests {
         val port = dockerCompose.getServicePort("mongo_1", MONGO_PORT)
         val host = dockerCompose.getServiceHost("mongo_1", MONGO_PORT)
 
-        val mongoClient = MongoClient(host, port)
+        val mongoClient = MongoClients.create("mongodb://$host:$port")
         val database = mongoClient.getDatabase("test")
 
         val collection = database.getCollection("users")
